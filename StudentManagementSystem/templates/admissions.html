@@ -1,0 +1,327 @@
+{%extends 'Home.html'%}
+{% block title %}
+ Student Management System
+{% endblock %}
+{% block contant %}
+{% load static %}
+		
+		<!--************************************
+				Inner Banner Start
+		*************************************-->
+		<div class="tg-innerbanner">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						<ol class="tg-breadcrumb">
+							<li><a href="{% url 'index' %}">home</a></li>
+							<li class="tg-active">addmission</li>
+						</ol>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--************************************
+				Inner Banner End
+		*************************************-->
+		<!--************************************
+				Main Start
+		*************************************-->
+		<main id="tg-main" class="tg-main tg-haslayout">
+			<div class="container">
+				<div class="row">
+					<div id="tg-twocolumns" class="tg-twocolumns">
+						<div class="col-xs-12 col-sm-8 col-md-9 col-lg-9 pull-right">
+							<div id="tg-content" class="tg-content">
+								<div class="tg-addmission">
+									<div id="tg-addmissionslider" class="tg-addmissionslider owl-carousel tg-btnround">
+
+										<figure class="item"><img src="{%static 'static_files/images/addmission/img-01.jpg'%}"  alt="image description"></figure>
+										<figure class="item"><img src="{%static 'static_files/images/addmission/img-02.jpg'%}"  alt="image description"></figure>
+										<figure class="item"><img src="{%static 'static_files/images/addmission/img-03.jpg'%}"  alt="image description"></figure>
+									</div>
+									<span class="tg-lastmodified">Get Bright Future With Us</span>
+									<div class="tg-pagetitle">
+										<h2>Admission Open Now!</h2>
+
+
+									</div>
+                                           <div class="col-lg-12">
+										   <div class="BOOKING_from" style="background:#f2f2f2;">
+											  <div class="BOOKING_from_title">
+												 <h3>PERSONAL INFORMATION</h3>
+												 <span>Admission form</span>
+												 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat</p>
+											  </div>
+											  <div class="BOOKING_from_info" >
+												 <form method="post" action="" enctype="multipart/form-data">
+													   {% csrf_token %}
+														<div class="form-group7" style="width:43%; background:none; display:inline-block; margin:5px 10px 10px 10px;" >
+														  <input  type="text" name="Name" class="form-control"  placeholder="Name" required />
+													   </div>
+													   <div class="form-group7" style="width:43%; display:inline-block; margin:5px 10px 10px 10px;">
+														  <input type="text"  name="Surname" class="form-control" placeholder="Surname" required />
+													   </div>
+													   <div class="form-group7"  style="width:43%; display:inline-block; margin:5px 10px 10px 10px;">
+														  <input type="email" name="Email" class="form-control" placeholder="Email" required />
+													   </div>
+													   <div class="form-group7"  style="width:43%; display:inline-block; margin:5px 10px 10px 10px;">
+														  <input type="text" name="Phone_Number" class="" placeholder="Phone Number" required />
+													   </div>
+
+													   <div class="form-group7"  style="width:43%; display:inline-block; margin:5px 10px 10px 10px;">
+														   <select class="form-control" name="Gender">
+															 <option value="Gender">Gender</option>
+															 <option value="Male">Male</option>
+															 <option value="Female">Female</option>
+
+														   </select>
+													   </div>
+													   <div class="form-group7"  style="width:43%; display:inline-block; margin:5px 10px 10px 10px;">
+														  <select class="form-control" name="Departments">
+															 <option value="Departments">Departments</option>
+															 <option value="CSE">CSE</option>
+															 <option value="EEE">EEE</option>
+															 <option value="BBA">BBA</option>
+															 <option value="LLB">LLB</option>
+														   </select>
+													   </div>
+
+													   <div class="form-group7"  style="width:43%; display:inline-block; margin:5px 10px 10px 10px;">
+														  <input type="text" name="Guardian_Name" class="form-control" placeholder="Guardian Name" required />
+													   </div>
+													   <div class="form-group7"  style="width:43%; display:inline-block; margin:5px 10px 10px 10px;">
+														  <input type="text" name="Guardian_Number" class="form-control" placeholder="Guardian Number" required />
+													   </div>
+														 <div class="form-group7"  style="width:43%; display:inline-block; margin:5px 10px 10px 10px;">
+														  <input type="text" name="Personal_Identity" class="form-control" placeholder="Personal Identity" required />
+													   </div>
+													   <div class="form-group7"  style="width:43%; display:inline-block; margin:5px 10px 10px 10px;">
+														  <input type="file" name="Img" class="form-control" placeholder="Img" required />
+													   </div>
+													    <div class="form-group7"  style="width:43%; display:inline-block; margin:5px 10px 10px 10px;">
+														  <input type="text" name="Trimester" class="" value="Fall 2021" readonly />
+													   </div>
+													   <div class="form-group7" style="display:inline-block; margin:5px 10px 10px 10px;">
+														<textarea style="width:350px; height:70px;" name="Address" placeholder="Address"></textarea>
+													   </div>
+													  <div  class="onlineBooking_btn" >
+													   <button type="submit" style="Width:200px; font-size:20px; height:40px; background:green; color:white; display:inline-block; margin:15px 10px 20px 250px;">Apply Now</button>
+													 </div>
+												 </form>
+											  </div>
+										   </div>
+									  </div>
+
+									<div class="tg-container">
+										<h3>Programs Offered</h3>
+										<ul class="tg-downloadlist">
+											<li>
+												<div class="tg-result">
+													<span class="tg-counting">01</span>
+													<a class="tg-btndownloadresult" href="javascript:void(0);">
+														<em>download</em>
+														<i class="icon-download"></i>
+													</a>
+													<div class="tg-description"><p>GAT General-Faculty of Languages</p></div>
+												</div>
+											</li>
+											<li>
+												<div class="tg-result">
+													<span class="tg-counting">02</span>
+													<a class="tg-btndownloadresult" href="javascript:void(0);">
+														<em>download</em>
+														<i class="icon-download"></i>
+													</a>
+													<div class="tg-description"><p>GAT Subject-Faculty of Languages</p></div>
+												</div>
+											</li>
+											<li>
+												<div class="tg-result">
+													<span class="tg-counting">03</span>
+													<a class="tg-btndownloadresult" href="javascript:void(0);">
+														<em>download</em>
+														<i class="icon-download"></i>
+													</a>
+													<div class="tg-description"><p>GAT Subject-Faculty of Social Sciences</p></div>
+												</div>
+											</li>
+											<li>
+												<div class="tg-result">
+													<span class="tg-counting">04</span>
+													<a class="tg-btndownloadresult" href="javascript:void(0);">
+														<em>download</em>
+														<i class="icon-download"></i>
+													</a>
+													<div class="tg-description"><p>GAT General-Faculty of Social Sciences</p></div>
+												</div>
+											</li>
+											<li>
+												<div class="tg-result">
+													<span class="tg-counting">05</span>
+													<a class="tg-btndownloadresult" href="javascript:void(0);">
+														<em>download</em>
+														<i class="icon-download"></i>
+													</a>
+													<div class="tg-description"><p>GAT General-MSBA</p></div>
+												</div>
+											</li>
+											<li>
+												<div class="tg-result">
+													<span class="tg-counting">06</span>
+													<a class="tg-btndownloadresult" href="javascript:void(0);">
+														<em>download</em>
+														<i class="icon-download"></i>
+													</a>
+													<div class="tg-description"><p>GAT Subject-PHD(MS)</p></div>
+												</div>
+											</li>
+											<li>
+												<div class="tg-result">
+													<span class="tg-counting">07</span>
+													<a class="tg-btndownloadresult" href="javascript:void(0);">
+														<em>download</em>
+														<i class="icon-download"></i>
+													</a>
+													<div class="tg-description"><p>GAT Subject-Faculty of Social Sciences</p></div>
+												</div>
+											</li>
+											<li>
+												<div class="tg-result">
+													<span class="tg-counting">08</span>
+													<a class="tg-btndownloadresult" href="javascript:void(0);">
+														<em>download</em>
+														<i class="icon-download"></i>
+													</a>
+													<div class="tg-description"><p>GAT General-Faculty of Social Sciences</p></div>
+												</div>
+											</li>
+											<li>
+												<div class="tg-result">
+													<span class="tg-counting">09</span>
+													<a class="tg-btndownloadresult" href="javascript:void(0);">
+														<em>download</em>
+														<i class="icon-download"></i>
+													</a>
+													<div class="tg-description"><p>GAT General-MSBA</p></div>
+												</div>
+											</li>
+											<li>
+												<div class="tg-result">
+													<span class="tg-counting">10</span>
+													<a class="tg-btndownloadresult" href="javascript:void(0);">
+														<em>download</em>
+														<i class="icon-download"></i>
+													</a>
+													<div class="tg-description"><p>GAT Subject-PHD(MS)</p></div>
+												</div>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-xs-12 col-sm-4 col-md-3 col-lg-3 pull-left">
+							<aside id="tg-sidebar" class="tg-sidebar">
+								<div class="tg-widget tg-widgetadmissionform">
+									<div class="tg-widgetcontent">
+										<h3>Admission Form 2021</h3>
+										<div class="tg-description">
+											<p>Quistane nostrud exertation ulamco laboris nisi ut aliquip ex ea comodo consequat aute irure dolor.</p>
+										</div>
+										<a class="tg-btn tg-btnicon" href="javascript:void(0);">
+											<i class="fa fa-file-pdf-o"></i>
+											<span>Download PDF</span>
+										</a>
+									</div>
+								</div>
+								<div class="tg-widget tg-widgetcampuses">
+									<div class="tg-widgettitle">
+										<h3>Campuses</h3>
+									</div>
+									<div class="tg-widgetcontent">
+										<div class="tg-campuses">
+											<div class="tg-campus">
+												<div class="tg-mapbox">
+													<div class="tg-campuslocation"></div>
+													<a class="tg-getdirection" href="javascript:void(0);">get direction</a>
+												</div>
+												<ul>
+													<li>
+														<i class="icon-location"></i>
+														<address>Abc, xyz street London, HG521A</address>
+													</li>
+													<li>
+														<i class="icon-phone-handset"></i>
+														<span>0800 - 1234 - 562 - 6</span>
+													</li>
+													<li>
+														<i class="icon-printer"></i>
+														<span>+4 1234 567 - 9</span>
+													</li>
+													<li>
+														<a href="mailto:query@domain.com">
+															<i class="icon-envelope"></i>
+															<span>query@domain.com</span>
+														</a>
+													</li>
+													<li>
+														<a href="mailto:complaint@domain.com">
+															<i class="icon-construction"></i>
+															<span>complaint@domain.com</span>
+														</a>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="tg-widget tg-widgetothercapmus">
+									<div class="tg-widgetcontent">
+										<article class="tg-campus tg-campusleftthumb">
+											<figure class="tg-featuredimg">
+												<a href="javascript:void(0);">
+													<img src="images/img-22.jpg" alt="image description">
+												</a>
+											</figure>
+											<div class="tg-campuscontent">
+												<div class="tg-campustitle">
+													<h3><a href="javascript:void(0);">National College of Arts &amp; Construction</a></h3>
+												</div>
+												<ul>
+													<li>
+														<i class="fa fa- fa-location-arrow"></i>
+														<address>Manchester, England</address>
+													</li>
+												</ul>
+											</div>
+										</article>
+										<article class="tg-campus tg-campusleftthumb">
+											<figure class="tg-featuredimg">
+												<a href="javascript:void(0);">
+													<img src="images/img-23.jpg" alt="image description">
+												</a>
+											</figure>
+											<div class="tg-campuscontent">
+												<div class="tg-campustitle">
+													<h3><a href="javascript:void(0);">Base College of Craft &amp; Arts</a></h3>
+												</div>
+												<ul>
+													<li>
+														<i class="fa fa- fa-location-arrow"></i>
+														<address>Manchester, England</address>
+													</li>
+												</ul>
+											</div>
+										</article>
+									</div>
+								</div>
+							</aside>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+		<!--************************************
+				Main End
+		*************************************-->
+	{% endblock %}

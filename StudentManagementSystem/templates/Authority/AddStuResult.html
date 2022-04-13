@@ -1,0 +1,183 @@
+{%extends 'Authority/index.html'%}
+{% block title %}
+ Authority Add Student Result
+{% endblock %}
+ {% block  pagecontant %}
+  <!--************************************
+			form part start
+		*************************************-->
+    {% load static %}
+  <link rel="stylesheet" href="{%static 'static_files/css/style.css'%}">
+
+    <div class="right_col" role="main">
+        <div class="row">
+            <div class ="col-lg-12" style="background:gray;">
+                 <div class ="col-lg-6">
+                     <div class="add_student">
+                        <h2>Add Results</h2>
+                     </div>
+                 </div>
+                <div class ="col-lg-6">
+                    <div class="add_student_link">
+                        <a href="{% url 'athurpage' %}">Home</a> <i class="fas fa-angle-right"></i> <a href="{% url 'AddStuResult' %}">Add Results</a>
+                     </div>
+                 </div>
+            </div>
+        </div>
+
+          <div class="row" style="margin-top:15px; ">
+          <div class="col-lg-6" style="background: blue; ">
+           <div class="col-lg-12">
+               <div class="form_title">
+                   <h1>Manage Results</h1>
+               </div>
+           </div>
+              <form method="post" enctype="multipart/form-data">
+                 {% csrf_token %}
+                  <div class="col-lg-12">
+                  <div class="form-group from_info">
+                      <label class="form-label">Student Id</label>
+                      <input type="text" name="student_id" class="form-control" placeholder="Student Id" required>
+                  </div>
+              </div>
+              <div class="col-lg-12">
+                  <div class="form-group from_info">
+                      <label class="form-label">First Name</label>
+                      <input type="text" name="First_name" class="form-control" placeholder="First Name" required>
+                  </div>
+              </div>
+                <div class="col-lg-12">
+                  <div class="form-group from_info">
+                      <label class="form-label">Last Name</label>
+                      <input type="text" name="Last_name" class="form-control" placeholder="Last Name" required>
+                  </div>
+              </div>
+
+                  <div class="col-lg-12">
+                  <div class="form-group from_info">
+                      <label class="form-label">Batch No</label>
+                      <input type="text" name="Batch_No" class="form-control" placeholder="Batch No" required>
+                  </div>
+              </div>
+                  <div class="col-lg-12">
+                  <div class="form-group from_info">
+                      <label class="form-label">Trimester</label>
+                      <input type="text" name="Trimester" class="form-control" placeholder="Trimester" required>
+                  </div>
+              </div>
+                <div class="col-lg-12">
+                  <div class="form-group from_info">
+                      <label class="form-label">Departments</label>
+                      <select class="form-control" name="Departments" required>
+                          <option value="Departments">Departments</option>
+                          <option value="CSE">CSE</option>
+                          <option value="EEE">EEE</option>
+                          <option value="LLB">LLB</option>
+                          <option value="BBA">BBA</option>
+                      </select>
+                  </div>
+              </div>
+
+              <div class="col-lg-12">
+                  <div class="form-group from_info">
+                      <label class="form-label">CGPA</label>
+                      <input type="text" name="CGPA" class="form-control" placeholder="CGPA" required>
+                  </div>
+              </div>
+              <div class="col-lg-12">
+                  <div class="form_btn">
+                      <button type="submit">Add</button>
+                  </div>
+                   <div class="form_btn">
+                      <button type="reset">Clear</button>
+                  </div>
+              </div>
+                  </form>
+          </div>
+              <div class="col-lg-6 form_right" style="background: blue;">
+                  <div class="col-lg-12">
+                      <div class="form_right_info">
+                          <form method="post" action="" enctype="multipart/form-data">
+                              {% csrf_token %}
+                              <div class="from_info1">
+                                   <div class="form-group">
+                                       <select class="form-control">
+                                           <option value="Select Options">Select Options</option>
+                                           <option value="CSE">CSE</option>
+                                           <option value="EEE">EEE</option>
+                                           <option value="LLB">LLB</option>
+                                           <option value="BBA">BBA</option>
+                                       </select>
+                                     </div>
+                                  </div>
+                              <div class="from_info2">
+                                   <div class="form-group">
+                                       <input type="search" name="serch" class="form-control" placeholder="" required>
+                                   </div>
+                              </div>
+                              <div class="from_info3">
+                                    <div class="form_btn1">
+                                         <button type="submit">Search</button>
+                                     </div>
+                              </div>
+                              <div class="from_info4">
+                                    <div class="form_btn1">
+                                         <button type="submit">Show All</button>
+                                     </div>
+                              </div>
+                          </form>
+                      </div>
+                  </div>
+                  <div class="col-lg-12 form_table" >
+                      <div id="example" class="example" >
+                        <table  class="table-bordered table-striped">
+                          <tr>
+                              <th>Student Id</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Email</th>
+                            <th>Mobile Number</th>
+                            <th>Registration Date</th>
+                               <th>Trimester</th>
+                              <th>Batch No</th>
+                            <th>Departments</th>
+                            <th>Gender</th>
+                            <th>Blood Group</th>
+                              <th>Parents Name</th>
+                            <th>Parents Mbl Num</th>
+                              <th>Upload Image</th>
+                               <th>Address</th>
+                              <th>Action</th>
+                          </tr>
+                            {%if data %}
+                              {% for i in data %}
+                                     <tr>
+                                          <td>{{i.Student_Id}}</td>
+                                          <td>{{i.First_Name}}</td>
+                                          <td>{{i.Last_Name}}</td>
+                                          <td>{{i.Email}}</td>
+                                          <td>{{i.Mobile_Number}}</td>
+                                          <td>{{i.Registration_Date}}</td>
+                                         <td>{{i.Trimester}}</td>
+                                          <td>{{i.Batch_No}}</td>
+                                          <td>{{i.Departments}}</td>
+                                          <td>{{i.Gender}}</td>
+                                          <td>{{i.Blood_Group}}</td>
+                                          <td>{{i.Parents_Name}}</td>
+                                          <td>{{i.Parents_Mbl_Num}}</td>
+                                          <td>{{i.Upload_Image }}</td>
+                                          <td>{{i.Address }}</td>
+                                          <td class="action">
+                                                   <a  href="{% url 'delete' id=i.Student_Id %}">Delete</a>
+                                                   <a  href="{% url 'editStudent' id=i.Student_Id %}">Update</a>
+                                          </td>
+                                     </tr>
+                                {%endfor%}
+                            {% endif %}
+                        </table>
+                    </div>
+                  </div>
+              </div>
+        </div>
+    </div>
+{% endblock %}

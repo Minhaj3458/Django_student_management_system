@@ -1,0 +1,225 @@
+{%extends 'Authority/index.html'%}
+{% block title %}
+ Authority AllCourse
+{% endblock %}
+ {% block  pagecontant %}
+  <!--************************************
+			Table part start
+		*************************************-->
+    {% load static %}
+<link rel="stylesheet" href="{%static 'static_files/css/style.css'%}">
+
+    <div class="right_col" role="main">
+        <div class="row">
+            <div class ="col-lg-12" style="background:gray;">
+                 <div class ="col-lg-6">
+                     <div class="add_student">
+                        <h2>All Courses</h2>
+                     </div>
+                 </div>
+                <div class ="col-lg-6">
+                    <div class="add_student_link">
+                        <a href="{% url 'athurpage' %}">Home</a> <i class="fas fa-angle-right"></i> <a href="#">All Courses</a>
+                     </div>
+                 </div>
+            </div>
+        </div>
+          <div class="row" style="margin-top:10px;">
+              <div class="col-lg-12">
+                  <div class="table_menu">
+                      <!-- Nav tabs -->
+                        <ul class="nav nav-tabs" role="tablist">
+                          <li class="active"><a href="#List_View" role="tab" data-toggle="tab">List View</a></li>
+                          <li ><a href="#Grid_view" role="tab" data-toggle="tab">Grid view</a></li>
+                        </ul>
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="List_View">
+                              <div class="col-lg-12">
+                                  <div class="table_tilte">
+                                      <h4>All Courses List</h4>
+                                      <a href="{% url 'addcourses' %}"><i class="fas fa-plus"></i> Add New</a>
+                                  </div>
+                              </div>
+                              <div class="col-lg-12">
+                                  <div class="table_info11">
+                                      <form action="" method="post">
+                                           {% csrf_token %}
+                                          <div class="form-group table_info_btn">
+                                               <label class="form-label">Show</label>
+                                               <select class="form-control">
+                                                   <option value="Class">15</option>
+                                                   <option value="html">25</option>
+                                                   <option value="css">50</option>
+                                                   <option value="javascript">75</option>
+                                                   <option value="angular">100</option>
+                                               </select>
+                                            </div>
+                                          <div class="form-group table_info_btn1" >
+                                              <select class="form-control">
+                                               <option value="Class">Select Options</option>
+                                               <option value="html">CSE</option>
+                                               <option value="css">EEE</option>
+                                               <option value="javascript">LLB</option>
+                                               <option value="angular">BBA</option>
+                                              </select>
+                                        </div>
+                                          <div class="table_info_btn2">
+                                             <div class="form-group">
+                                               <input type="search" name="search" class="form-control" placeholder="" required>
+                                           </div>
+                                         </div>
+                                        <div class="table_info_btn3">
+                                            <div class="form_btn2">
+                                               <button type="submit">Search</button>
+                                            </div>
+                                            <div class="form_btn2">
+                                              <button type="submit">Show All</button>
+                                           </div>
+                                         </div>
+                                      </form>
+                                  </div>
+                              </div>
+                              <div class="col-lg-12" style="background: black;">
+                                      <div id="example" class="example" style="height:600px;">
+                                        <table style="width:1700px;" class="table-bordered table-striped">
+                                          <tr>
+                                              <th>Course Name</th>
+                                            <th>Course Code</th>
+                                            <th>Start Date</th>
+                                            <th>Course Duration</th>
+                                            <th>Course Price</th>
+                                            <th>Batch</th>
+                                              <th>Trimester</th>
+                                              <th>Professor Name</th>
+                                            <th>Contact Number</th>
+                                            <th>Course Photo</th>
+                                            <th>Course Details</th>
+                                              <th>Action</th>
+                                          </tr>
+                                             {%if data %}
+                                              {% for i in data %}
+                                          <tr>
+                                            <td>{{i.Course_Name}}</td>
+                                            <td>{{i.Course_Code}}</td>
+                                            <td>{{i.Start_Date}}</td>
+                                            <td>{{i.Course_Duration}}</td>
+                                            <td>{{i.Course_Price}}</td>
+                                            <td>{{i.Batch}}</td>
+                                              <td>{{i.Trimester}}</td>
+                                            <td>{{i.Professor_Name}}</td>
+                                            <td>{{i.Contact_Number}}</td>
+                                            <td>{{i.Course_Photo}}</td>
+                                            <td>{{i.Course_Details}}</td>
+                                              <td class="action">
+                                                  <a  href="{% url 'Couresdelete' id=i.Id %}">Delete</a>
+                                                  <a  href="{% url 'EditCourse' id=i.Id %}">Update</a>
+                                              </td>
+                                       </tr>
+                               {%endfor%}
+                            {% endif %}
+                                        </table>
+                                    </div>
+                              </div>
+                          </div>
+                          <div class="tab-pane" id="Grid_view">
+                               <div class="col-lg-12">
+                                  <div class="table_info11">
+                                      <form action="" method="post">
+                                           {% csrf_token %}
+                                          <div class="form-group table_info_btn">
+                                               <label class="form-label">Show</label>
+                                               <select class="form-control">
+                                                   <option value="Class">15</option>
+                                                   <option value="html">25</option>
+                                                   <option value="css">50</option>
+                                                   <option value="javascript">75</option>
+                                                   <option value="angular">100</option>
+                                               </select>
+                                            </div>
+                                          <div class="form-group table_info_btn1" >
+                                              <select class="form-control">
+                                               <option value="Class">Select Options</option>
+                                               <option value="html">CSE</option>
+                                               <option value="css">EEE</option>
+                                               <option value="javascript">LLB</option>
+                                               <option value="angular">BBA</option>
+                                              </select>
+                                        </div>
+                                          <div class="table_info_btn2">
+                                             <div class="form-group">
+                                               <input type="search" name="search" class="form-control" placeholder="" required>
+                                           </div>
+                                         </div>
+                                        <div class="table_info_btn3">
+                                            <div class="form_btn2">
+                                               <button type="submit">Search</button>
+                                            </div>
+                                            <div class="form_btn2">
+                                              <button type="submit">Show All</button>
+                                           </div>
+                                         </div>
+                                      </form>
+                                  </div>
+                              </div>
+                              <div class="col-lg-12" style="background:#7ED321;">
+                                  {%if data %}
+
+                                    {% for i in data %}
+                                     <div class="col-lg-4" style="background:#e0e0e0; margin:10px 6px;  border:5px solid #b0b0b0;  border-radius:30px; width:32%;" >
+                                          <div class="Grid_view_top">
+                                              <p> <span class="hover_icon"><i class="fas fa-ellipsis-h"></i></span>
+                                                 <ul class="del_Edit">
+                                                   <li><a href="#"><i class="fas fa-trash-alt"></i></a></li>
+                                                   <li><a href="#"><i class="fas fa-user-edit"></i></a></li>
+                                                </ul>
+                                              </p>
+                                              {%if i.Course_Photo %}
+                                               <img src="{{i.Course_Photo.url}}" alt="img" width="160px" height="160px">
+                                               {% endif %}
+                                              <h4>{{i.Course_Name}}</h4>
+                                              <h6>{{i.Course_Code}}</h6>
+                                          </div>
+                                           <div class="Grid_view_botton">
+                                                    <div class="Grid_view_botton_info">
+                                                        <h5>Course Price :</h5>
+                                                        <p>{{i.Course_Price}}</p>
+                                                    </div>
+                                                      <div class="Grid_view_botton_info">
+                                                          <h5>Batch :</h5>
+                                                          <p>{{i.Batch}}</p>
+                                                      </div>
+                                                      <div class="Grid_view_botton_info">
+                                                          <h5>Trimester :</h5>
+                                                          <p>{{i.Trimester}}</p>
+                                                      </div>
+                                                      <div class="Grid_view_botton_info">
+                                                          <h5>Professor Name:</h5>
+                                                          <p>{{i.Professor_Name}}</p>
+                                                      </div>
+                                                       <div class="Grid_view_botton_info">
+                                                           <h5>Contact Number:</h5>
+                                                           <p>{{i.Contact_Number}}</p>
+                                                       </div>
+                                                     <div class="Grid_view_botton_info">
+                                                         <h5>Course Duration:</h5>
+                                                         <p>{{i.Course_Duration}}</p>
+                                                     </div>
+                                           </div>
+                                  </div>
+                                   {%endfor%}
+
+                                  {% endif %}
+
+                                  <div class="col-lg-4">
+
+                                  </div>
+                              </div>
+                          </div>
+                        </div>
+                  </div>
+              </div>
+          </div>
+    </div>
+
+{% endblock %}

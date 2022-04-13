@@ -1,0 +1,79 @@
+{%extends 'Home.html'%}
+{% block title %}
+ Authority Register Page
+{% endblock %}
+ {% block contant %}
+ {% load static %}
+
+   <!--************************************
+			register part start
+		*************************************-->
+      <section id="slide">
+        <div class="login_bg1" style="background: url({%static 'static_files/images/slider/img-11.jpg'%})">
+          <div class="container">
+            <div class="row">
+              <div class="home-link text-center">
+                <p>
+                  <a href="{% url 'index' %}">Home</a><i class="fas fa-angle-right"></i><a href="#">Login</a>
+                </p>
+              </div>
+              <div class="login_info">
+                <div class="col-lg-10">
+                  <div class="login_txt1">
+                    <h2>Brain International University</h2>
+                    <h4>Register Here</h4>
+                  </div>
+                </div>
+                <form method="POST">
+                  {% csrf_token %}
+                  <div class="from_info">
+                    <div class="col-lg-10">
+                      <div class="form-group">
+                        <input type="text" name="fname" class="form-control"  placeholder="First Name *" required/>
+                      </div>
+                      <div class="form-group">
+                        <input type="text"  name="lname" class="form-control" placeholder="Last Name *" required/>
+                      </div>
+                      <div class="form-group">
+                        <input type="email" name="email" class="form-control" placeholder="Email *" required/>
+                      </div>
+                      <div class="form-group">
+                        <input type="text" class="form-control" name="phone_number" placeholder="Phone Number *" required />
+                      </div>
+                      <div class="form-group">
+                        <input type="password" name="password" class="form-control" placeholder="Password *" required />
+                      </div>
+                      <div class="form-group">
+                        <input type="password" name="con_password" class="form-control" placeholder="Confirm Password *" required />
+                      </div>
+                    </div>
+                    <div class="col-lg-10">
+                      <div class="checkbox2">
+                        <input type="checkbox" name="check" required/><label for="">I Agree The Terms & Condition</label>
+                      </div>
+                    </div>
+                     <div class="col-lg-10">
+                      <div  class="login_btn1" >
+                          <button type="submit" >Register Now</button>
+                      </div>
+                       {% if messages %}
+                         {% for i in messages %}
+                          <b>{{i}}</b>
+                          {% endfor%}
+                       {% endif %}
+                      <div class="login_btn1">
+                        <a href="{% url 'authorlogin' %}">Login Now</a>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!--************************************
+			register part End
+		*************************************-->
+ {% endblock %}
